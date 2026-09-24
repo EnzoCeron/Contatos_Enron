@@ -571,7 +571,7 @@ public class EnronGraphAnalyzer {
             for (Edge edge : adjacencyList.get(current.vertex)) {
                 double contribution = 1.0 / (double) edge.weight;
                 double candidate = best[current.vertex] + contribution;
-                if (candidate > best[edge.to] + 1e-9) {
+                if (!settled[edge.to] && candidate > best[edge.to] + 1e-9) {
                     best[edge.to] = candidate;
                     parent[edge.to] = current.vertex;
                     edgeContribution[edge.to] = contribution;

@@ -3,8 +3,7 @@ import java.io.IOException;
 /**
  * Classe principal do projeto.
  *
- * Em vez de usar dados sintéticos, ela lê o conjunto real de e-mails extraído do ZIP
- * disponibilizado para a atividade e monta automaticamente o grafo de contatos.
+ * Lê o conjunto real de e-mails extraído do ZIP
  */
 public class MainEnron {
     /**
@@ -26,7 +25,7 @@ public class MainEnron {
             System.out.println("Top 20 in-degree: " + analyzer.getTopInDegree(20));
 
             // Usuários escolhidos para demonstrar alcance, distância e caminho crítico.
-            String source = "michelle.lokay@enron.com";
+            String source = "dennis.lee@enron.com";
             String target = "steven.harris@enron.com";
 
             // DFS retorna um caminho encontrado explorando uma alternativa até o fim.
@@ -36,7 +35,7 @@ public class MainEnron {
             System.out.println("BFS path " + source + " -> " + target + ": " + analyzer.breadthFirstPath(source, target));
 
             // Distância considera apenas a quantidade de ligações, não o peso delas.
-            System.out.println("Nodes at distance 2 from " + source + ": " + analyzer.nodesAtDistance(source, 2));
+            System.out.println("Nodes at distance 2 from " + source + ": " + analyzer.nodesAtDistance(source, 1));
 
             // O caminho crítico usa a soma de 1/peso para representar dependência.
             System.out.println("Critical path " + source + " -> " + target + ": " + analyzer.criticalPathDetails(source, target));
